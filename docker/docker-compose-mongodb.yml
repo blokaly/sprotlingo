@@ -1,0 +1,18 @@
+version: '3.5'
+
+services:
+  sprotlingo-mongo:
+    image: mongo
+    container_name: sprotlingo-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - sprotlingo-mongo:/data/db
+      - mongo-config:/data/configdb
+    restart: unless-stopped
+
+volumes:
+  sprotlingo-mongo:
+    name: sprotlingo_mongo
+  mongo-config:
+    name: mongo_config
